@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заказа — КубГУ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="header-inner">
+            <div class="header-image-wrapper">
+                <img src="IMAGES/shapka.png" alt="Сайт КубГУ" class="header-bg-img">
+            </div>
+            <div class="header-text-group">
+                <h1 class="header-title">Кубанский государственный университет</h1>
+                <p class="header-subtitle">Калькулятор стоимости заказа</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Основная навигация">
+        <div class="nav-inner">
+            <a href="#top">Главная</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#about">Инструкция</a>
+        </div>
+    </nav>
+
+    <main class="content-width page-main">
+        <section class="intro-section" aria-labelledby="intro-title">
+            <p class="section-kicker">Учебный проект</p>
+            <h2 id="intro-title">Расчёт стоимости заказа</h2>
+        </section>
+
+        <section id="calculator" class="calculator-card" aria-labelledby="calculator-title">
+            <h2 id="calculator-title">Калькулятор</h2>
+
+            <form id="calculatorForm" novalidate>
+                <div class="form-field">
+                    <label for="quantity">Количество</label>
+                    <input
+                        id="quantity"
+                        name="quantity"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        placeholder="Например, 3"
+                        value="1"
+                        aria-describedby="quantityHelp"
+                    >
+                    <small id="quantityHelp">Введите целое положительное число.</small>
+                </div>
+
+                <fieldset class="form-field">
+                    <legend>Товар</legend>
+
+                     <div class="choice-row">
+                        <input type="radio" id="product-pen" name="product"
+                               value="pen" data-price="60">
+                        <label for="product-pen">Ручка — 70 ₽</label>
+                    </div>
+
+                    <div class="choice-row">
+                        <input type="radio" id="product-notebook" name="product"
+                               value="notebook" data-price="120" checked>
+                        <label for="product-notebook">Тетрадь — 130 ₽</label>
+                    </div>
+
+                    <div class="choice-row">
+                        <input type="radio" id="product-folder" name="product"
+                               value="folder" data-price="180">
+                        <label for="product-folder">Папка — 200 ₽</label>
+                    </div>
+
+                    <div class="choice-row">
+                        <input type="radio" id="product-marker" name="product"
+                               value="marker" data-price="95">
+                        <label for="product-marker">Маркер — 95 ₽</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-field" id="optionField">
+                    <label for="option">Количество листов</label>
+                    <select id="option" name="option">
+                        <option value="12" data-price="0">12 листов — +0 ₽</option>
+                        <option value="48" data-price="40">48 листов — +48 ₽</option>
+                        <option value="96" data-price="90">96 листов — +96 ₽</option>
+                    </select>
+                </div>
+
+                <div class="form-field" id="propertyField" hidden>
+                    <div class="choice-row">
+                        <input type="checkbox" id="property" name="property"
+                               data-price="30">
+                        <label for="property">С кнопкой-застёжкой — +40 ₽</label>
+                    </div>
+                </div>
+            </form>
+
+            <div id="result" class="result-panel" role="status"
+                 aria-live="polite" aria-atomic="true">
+                <p class="result-label">Итоговая стоимость</p>
+                <output id="totalPrice" for="quantity option property">— ₽</output>
+                <p id="resultMessage"></p>
+            </div>
+        </section>
+
+        <section id="about" class="instructions" aria-labelledby="about-title">
+            <h2 id="about-title">Как пользоваться</h2>
+            <ol>
+                <li>Введите количество, например 3.</li>
+                <li>Выберите товар.</li>
+                <li>Для тетради выберите количество листов, для папки отметьте «С кнопкой-застёжкой».</li>
+                <li>Итоговая сумма обновляется сразу.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Кубанский государственный университет</p>
+        <p>Евсикова Лилия Николаевна</p>
+    </footer>
+</body>
+</html>
